@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Title">Title</string>
+    <string name="Content">Content</string>
+    <string name="Edit_Note">Edit Note</string>
+    <string name="Notes">Notes</string>
+    <string name="Search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="favorites">Favorites</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

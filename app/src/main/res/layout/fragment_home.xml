@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingConstraints">
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_green"
+        android:fitsSystemWindows="true"
+        tools:context=".fragments.HomeFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/home_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/home_collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/light_green"
+                app:title="@string/Notes"
+                app:collapsedTitleTextColor="@color/forest_green"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+             <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/home_toolbar"
+                    android:background="@color/light_green"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:titleTextColor="@color/forest_green"
+                    app:subtitleTextColor="@color/forest_green"
+                    app:title="@string/Notes"
+
+                    app:menu="@menu/home_menu"
+                    >
+
+
+                </com.google.android.material.appbar.MaterialToolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:backgroundTint="@color/light_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/mid_low_green"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_empty_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:lottie_rawRes="@raw/empty_notes"
+                app:lottie_autoPlay="true"
+                app:lottie_speed="1.5"
+                app:lottie_loop="true">
+
+            </com.airbnb.lottie.LottieAnimationView>
+
+
+    <!--    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/emptyNotesImage"
+            android:visibility="gone"
+            android:src="@drawable/ic_add"/> -->
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addNoteFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="28dp"
+            android:clickable="true"
+            android:backgroundTint="@color/forest_green"
+            app:tint="@color/light_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_add" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
