@@ -33,14 +33,7 @@ abstract class NoteDatabase : RoomDatabase() {
 
 
         private fun createDatabase(context: Context): NoteDatabase {
-
-            return Room.databaseBuilder(
-                context.applicationContext,
-                NoteDatabase::class.java,
-                "note_db"
-            )
-
-                .build()
+            return TODO("Provide the return value")
         }
     }
 }

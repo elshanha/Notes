@@ -85,9 +85,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         }
 
-
-
-
     private fun updateUI(note: List<Note>?) {
         if (note != null) {
             if (note.isNotEmpty()) {
@@ -106,14 +103,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             setHasFixedSize(true)
             adapter = noteAdapter
-
         }
 
         activity?.let {
             notesViewModel.getAllNotes().observe(viewLifecycleOwner) {note ->
                 noteAdapter.differ.submitList(note)
                 updateUI(note)
-
             }
         }
     }

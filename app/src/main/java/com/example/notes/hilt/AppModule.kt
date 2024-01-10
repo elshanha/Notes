@@ -4,6 +4,9 @@ import android.content.Context
 import androidx.room.Room
 import com.example.notes.dao.NoteDao
 import com.example.notes.database.NoteDatabase
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,6 +22,12 @@ object AppModule {
     @Provides
     fun provideNoteDao(noteDatabase : NoteDatabase) : NoteDao {
         return noteDatabase.getNoteDao()
+    }
+
+    @Singleton
+    @Provides
+    fun provideFirestore() : FirebaseFirestore {
+        return Firebase.firestore
     }
 
     @Singleton

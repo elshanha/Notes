@@ -19,12 +19,12 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class FavoritesFragment : Fragment() {
 
-    private var favoritesBinding : FragmentFavoritesBinding? = null
+    private var favoritesBinding: FragmentFavoritesBinding? = null
     private val binding get() = favoritesBinding!!
     private lateinit var noteAdapter: NoteAdapter
     private lateinit var favToolbar: MaterialToolbar
 
-    private val notesViewModel : NoteViewModel by viewModels()
+    private val notesViewModel: NoteViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -70,11 +70,11 @@ class FavoritesFragment : Fragment() {
         }
 
         activity?.let {
-            notesViewModel.getFavorites().observe(viewLifecycleOwner) {note ->
+            notesViewModel.getFavorites().observe(viewLifecycleOwner) { note ->
                 noteAdapter.differ.submitList(note)
                 updateUI(note)
             }
         }
     }
-
 }
+

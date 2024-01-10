@@ -4,13 +4,14 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.notes.model.Note
+import com.example.notes.repository.FirebaseRepository
 import com.example.notes.repository.NoteRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NoteViewModel @Inject constructor (app: Application, private val noteRepository: NoteRepository) :
+class NoteViewModel @Inject constructor (app: Application, private val noteRepository: NoteRepository, private val firebaseRepository: FirebaseRepository) :
     AndroidViewModel(app) {
 
     val currentTimeMillis = System.currentTimeMillis().toString()
@@ -21,10 +22,12 @@ class NoteViewModel @Inject constructor (app: Application, private val noteRepos
         val warningText = "Please add Note"
         val editNoteInfoText = "Note edited"
 
-        fun addNote(note: Note) =
+        fun addNote(note: Note) {
+            firebaseRepository.addNote(note) {}
             viewModelScope.launch {
                 noteRepository.insertNote(note)
             }
+        }
 
         fun deleteNote(note: Note) =
             viewModelScope.launch {
@@ -41,5 +44,7 @@ class NoteViewModel @Inject constructor (app: Application, private val noteRepos
         fun searchNote(query: String?) = noteRepository.searchNote(query)
 
         fun getFavorites() = noteRepository.getFavorites()
+
+
 
     }
