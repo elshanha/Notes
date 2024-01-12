@@ -3,6 +3,7 @@ package com.example.notes.viewmodels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.notes.hilt.SharedPreferncesModule
 import com.example.notes.model.Note
 import com.example.notes.repository.FirebaseRepository
 import com.example.notes.repository.NoteRepository
@@ -11,7 +12,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NoteViewModel @Inject constructor (app: Application, private val noteRepository: NoteRepository, private val firebaseRepository: FirebaseRepository) :
+class NoteViewModel @Inject constructor (
+    app: Application,
+    private val noteRepository: NoteRepository,
+    private val firebaseRepository: FirebaseRepository,
+) :
+
     AndroidViewModel(app) {
 
     val currentTimeMillis = System.currentTimeMillis().toString()

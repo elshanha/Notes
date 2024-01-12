@@ -13,4 +13,12 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
     <string name="app_widget_description">This is an app widget description</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="login_title">Log in!</string>
+    <string name="register_title">Register!</string>
+    <string name="login_error">Please make sure you typed everything correctly</string>
+    <string name="Fill_fields">Please fill out all fields</string>
 </resources>

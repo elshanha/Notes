@@ -18,6 +18,8 @@ import com.example.notes.databinding.FragmentHomeBinding
 import com.example.notes.model.Note
 import com.example.notes.viewmodels.NoteViewModel
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -59,7 +61,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 R.id.favorites -> {
                     findNavController().navigate(R.id.action_homeFragment_to_favoritesFragment)
                 true
-                } else -> false
+
+                }
+                R.id.sign_out-> {
+                    FirebaseAuth.getInstance().signOut()
+                    findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
+                     true
+                }
+                else -> false
             }
         }
 

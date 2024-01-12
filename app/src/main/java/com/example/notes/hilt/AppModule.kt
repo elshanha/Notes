@@ -5,6 +5,8 @@ import androidx.room.Room
 import com.example.notes.dao.NoteDao
 import com.example.notes.database.NoteDatabase
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 import dagger.Module
@@ -29,6 +31,13 @@ object AppModule {
     fun provideFirestore() : FirebaseFirestore {
         return Firebase.firestore
     }
+
+    @Singleton
+    @Provides
+    fun provideFireauth() : FirebaseAuth {
+        return Firebase.auth
+    }
+
 
     @Singleton
     @Provides
